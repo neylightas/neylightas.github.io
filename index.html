@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <title>ARTIC</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/design/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/design/css/main.css">
+    <link rel="stylesheet" href="/design/css/fontawesome.min.css">
+    <script src="/design/js/jquery.min.js"></script>
+    <script src="/design/js/bootstrap.min.js"></script>
+    <script src="/design/js/main.js?v=4"></script>
+  </head>
+  <body>
+    <div id="wrapper">
+<div id="bar">
+  <div class="top">
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-panel="tab" href="#"><i class="far fa-file"></i>Nový panel</a><a class="fas fa-times"></a></li>
+      <li><a class="new-tab"><i class="fas fa-plus"></i></a></li>
+    </ul>
+  </div>
+  <div class="bottom">
+    <a id="back" href="#" class="btn btn-default disabled"><i class="fas fa-arrow-left"></i></a>
+    <a id="forward" href="#" class="btn btn-default disabled"><i class="fas fa-arrow-right"></i></a>
+    <a id="refresh" href="#" class="btn btn-default"><i class="fas fa-redo"></i></a>
+    <a id="home" href="#" class="btn btn-default"><i class="fas fa-home"></i></a>
+    <form id="search-form" class="mx-2">
+      <input id="search" class="form-control" type="text">
+    </form>
+    <a href="/chars" class="char mx-2"><i class="fas fa-user"></i><span class="d-none d-sm-inline"> Barney Highlighter</span></a>  </div>
+</div>
+<div id="panel-1" class="browser">
+  <iframe src="/www/flyt.ic/index.php" onLoad="LocationChanged(this.contentWindow.location);"></iframe></div>
+    </div>
+  </body>
+</html>
