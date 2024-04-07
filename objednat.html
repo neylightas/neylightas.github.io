@@ -61,7 +61,7 @@
     <div class="container">
         <img class="logo" src="https://imgur.com/m41tWrX.png" alt="NeyLight logo" width="400">
         <div class="form-title">Objednávkový formulář produktu</div>
-        <form action="submit.php" method="post">
+        <form id="order-form" method="post">
             <div class="form-group">
                 <label for="fname">Jméno:</label>
                 <input type="text" id="fname" name="fname" required>
@@ -96,10 +96,32 @@
                 <label for="signature">Podpis:</label>
                 <input type="text" id="signature" name="signature" required>
             </div>
-                <form action="submit.php" method="post">
-                <button type="submit" class="submit-btn">Odeslat objednávku</button>
-            </form>
+            <button type="button" id="submit-btn" class="submit-btn">Odeslat objednávku</button>
         </form>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('submit-btn').addEventListener('click', function() {
+                var form = document.getElementById('order-form');
+                var formData = new FormData(form);
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', 'submit.php', true);
+                xhr.setRequestHeader('Accept', 'application/json');
+
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        console.log(xhr.responseText); // Zde můžete zpracovat odpověď
+                        alert('Objednávka úspěšně odeslána!');
+                    } else {
+                        alert('Nastala chyba při odesílání objednávky. Zkuste to prosím znovu.');
+                    }
+                };
+
+                xhr.send(formData);
+            });
+        });
+    </script>
 </body>
 </html>
